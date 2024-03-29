@@ -4,7 +4,8 @@ import { BentoGridSecondDemo } from '@/components/global/bentoGrid';
 
 import Button from '@/components/global/ui/button';
 import { CardHoverEffectDemo } from '@/components/global/cardGrid';
-import { Pricing } from '@/components/global/pricing';
+import { InfiniteMovingCards } from '@/components/global/infiniteMovingCards';
+import { clients } from '@/lib/constants';
 
 export default function Home() {
 	return (
@@ -21,16 +22,26 @@ export default function Home() {
 				<BentoGridSecondDemo />
 			</section>
 
-			<h1 className="text-5xl md:text-8xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-200 bg-opacity-50 mt-44 mb-12">
-				AUTOMATION <br /> IS  &quot;Trend&quot;.
-			</h1>
+	
 
-			<section>
-			<CardHoverEffectDemo/>
-			<Button text={"EXPLORE"} />
+			<section className="flex justify-center">
+				<InfiniteMovingCards className="md:mt-[15rem] mt-[4rem]"
+					items={clients}
+					direction="right"
+					speed="slow" />
 			</section>
 
-		
+
+			<section>
+
+			<h1 className="text-5xl md:text-8xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-900 bg-opacity-50 mt-44 mb-12">
+				AUTOMATION  <br/> &quot;Trend&quot;
+			</h1>
+				<CardHoverEffectDemo />
+				<Button text={"EXPLORE"} />
+			</section>
+
+
 		</main>
 	);
 }

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function BentoGridSecondDemo() {
 	return (
-		<BentoGrid className="max-w-[110rem] mx-auto md:auto-rows-[20rem]">
+		<BentoGrid className="max-w-[90rem] sm:mx-auto px-2 md:auto-rows-[20rem]">
 			{items.map((item, i) => (
 				<BentoGridItem
 					key={i}
@@ -30,7 +30,7 @@ interface classDarkMode{
 
 const Skeleton: React.FC<SkeletonProps> = ({ link }) => {
 	return (
-		<div className="flex flex-1 w-full h-full min-h-[7rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] border border-transparent  dark:bg-black">
+		<div className="flex flex-1 w-full h-full min-h-[7rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] border border-transparent  dark:bg-neutral-900">
 			{/* <img src={link} alt="BentoImage" className="w-full" /> */}
 		</div>
 	);
