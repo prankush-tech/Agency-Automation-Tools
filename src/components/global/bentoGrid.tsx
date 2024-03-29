@@ -30,7 +30,12 @@ interface classDarkMode{
 
 const Skeleton: React.FC<SkeletonProps> = ({ link }) => {
 	return (
-		<div className="flex flex-1 w-full h-full min-h-[7rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] border border-transparent  dark:bg-neutral-900">
+		<div className="flex flex-1 w-full h-full min-h-[7rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] border border-transparent  dark:bg-neutral-900"    style={{
+			backgroundImage: `url('/inspiration.png')`,
+			backgroundSize: "cover"
+			//  height: "972px",
+			 
+			}}>
 			{/* <img src={link} alt="BentoImage" className="w-full" /> */}
 		</div>
 	);
@@ -45,7 +50,7 @@ const Skeleton2: React.FC<SkeletonProps> = ({ link }) => {
 };
 const items = [
 	{
-		title: 'The Dawn of Innovation',
+		// title: 'The Dawn of Innovation',
 		// description: 'Explore the birth of groundbreaking ideas and inventions.',
 		header: <Skeleton link={''} />,
 		className: 'md:col-span-2',
@@ -69,8 +74,8 @@ const items = [
 		icon: <IconSignature className="h-4 w-4 text-neutral-900" />
 	},
 	{
-		title: 'The Power of Communication',
-		description: 'Understand the impact of effective communication in our lives.',
+		// title: 'The Power of Communication',
+		// description: 'Understand the impact of effective communication in our lives.',
 		header: <Skeleton link={''} />,
 		className: 'md:col-span-2',
 		className2:'dark:text-neutral-200',
