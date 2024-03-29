@@ -29,7 +29,7 @@ export default function Home() {
 
 
 			<section className="flex justify-center">
-				<InfiniteMovingCards className="md:mt-[15rem] mt-[4rem]"
+				<InfiniteMovingCards className="md:mt-[8rem] mt-[4rem]"
 					items={clients}
 					direction="right"
 					speed="slow" />
