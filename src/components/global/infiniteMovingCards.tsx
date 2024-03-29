@@ -1,8 +1,8 @@
 'use client'
-
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
+
 
 export const InfiniteMovingCards = ({
   items,
@@ -92,7 +92,7 @@ export const InfiniteMovingCards = ({
             height={1}
             src={item.href}
             alt={item.href}
-            className=" relative rounded-2xl  object-contain opacity-80 invert"
+            className=" relative rounded-2xl  object-contain opacity-80 "
             key={item.href}
           />
         ))}

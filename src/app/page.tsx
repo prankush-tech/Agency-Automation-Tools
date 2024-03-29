@@ -16,7 +16,7 @@ export default function Home() {
 			<Navbar />
 			<section className="relative p-2 md:p-10 mt-24">
 				
-				<h1 className="text-center text-3xl md:text-5xl lg:text-9xl font-bold mt-24 dark:text-neutral-50">
+				<h1 className="text-center text-3xl md:text-5xl lg:text-9xl font-bold lg:mt-16  mt-4 dark:text-neutral-50">
 					ZENCY-AGENCY MANAGEMENT
 				</h1>
 				<p className="text-center text-neutral-600 m-2 md:text-xl md:m-6 lg:mb-24 dark:text-neutral-400">
@@ -52,7 +52,7 @@ export default function Home() {
 						<CardBody className="bg-[#e2f24b] relative group/card
 							dark:hover:shadow-2xl ☐ dark:hover:shadow-neutral-500/[0.1]
 							Odark:bg-black dark:border-white/ [0.2] ☐ border-black/ [0.1]
-							w-full md:!w-[25rem] h-auto rounded-xl p-12 border">
+							w-full md:!w-[25rem] h-auto rounded-xl px-4 py-10 md:p-12 border">
 							<CardItem
 								translateZ="60"
 								className="text-neutral-900 text-md max-w-sm mt-2 font-bold "
@@ -106,7 +106,7 @@ export default function Home() {
 						<CardBody className="bg-[#e2f24b] relative group/card
 							dark:hover:shadow-2xl ☐ dark:hover:shadow-neutral-500/[0.1]
 							Odark:bg-black dark:border-white/ [0.2] ☐ border-black/ [0.1]
-							w-full md:!w-[25rem] h-auto rounded-xl p-12 border">
+							w-full md:!w-[25rem] h-auto rounded-xl px-4 py-10 md:p-12 border">
 							<CardItem
 								translateZ="60"
 								className="text-neutral-900 text-md max-w-sm mt-2 font-bold "
@@ -157,7 +157,7 @@ export default function Home() {
 						<CardBody className="bg-[#e2f24b] relative group/card
 							dark:hover:shadow-2xl ☐ dark:hover:shadow-neutral-500/[0.1]
 							Odark:bg-black dark:border-white/ [0.2] ☐ border-black/ [0.1]
-							w-full md:!w-[25rem] h-auto rounded-xl p-12 border">
+							w-full md:!w-[25rem] h-auto rounded-xl px-4 py-10 md:p-12 border">
 							<CardItem
 								translateZ="60"
 								className="text-neutral-900 text-md max-w-sm mt-2 font-bold "
