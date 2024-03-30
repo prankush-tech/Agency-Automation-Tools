@@ -11,13 +11,13 @@ export const clients = [ ...new Array(10) ].map((client, index) => ({
 }));
 
 export const SideBarIcons = [
-	{ name: 'Home', Component: Home, href: '/dashboard' },
+	{ name: 'Dashboard', Component: Home, href: '/dashboard' },
 	{ name: 'Workflows', Component: Workflows, href: '/workflows' },
-	{ name: 'Options', Component: Settings, href: '/settings' },
-	{ name: 'Bonds', Component: Category, href: '/connections' },
-	{ name: 'Bills', Component: Payment, href: '/billing' },
-	{ name: 'Temps', Component: Templates, href: '/templates' },
-	{ name: 'Logs', Component: Logs, href: '/logs' }
+	{ name: 'Settings', Component: Settings, href: '/settings' },
+	{ name: 'Category', Component: Category, href: '/connections' },
+	{ name: 'Payments', Component: Payment, href: '/billing' },
+	{ name: 'Work Logs', Component: Logs, href: '/logs' },
+	{ name: 'Templates', Component: Templates, href: '/templates' },
 ];
 
 // export const CONNECTIONS: Connection[] = [

@@ -11,9 +11,10 @@ import { CheckIcon } from 'lucide-react';
 import { Footer } from '@/components/global/footer';
 
 
+
 export default function Home() {
 	return (
-		<main  >
+		<main >
 			<Navbar />
 			<section className="relative p-2 md:p-10 mt-24">
 
@@ -208,7 +209,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<Footer/>
+			<Footer />
 		</main>
 	);
 }
