@@ -8,6 +8,7 @@ import { InfiniteMovingCards } from '@/components/global/infiniteMovingCards';
 import { clients } from '@/lib/constants';
 import { CardBody, CardContainer, CardItem } from '@/components/global/3d-card';
 import { CheckIcon } from 'lucide-react';
+import { Footer } from '@/components/global/footer';
 
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
 		<main  >
 			<Navbar />
 			<section className="relative p-2 md:p-10 mt-24">
-				
+
 				<h1 className="text-center text-3xl md:text-5xl lg:text-9xl font-bold lg:mt-16  mt-4 dark:text-neutral-50">
 					ZENCY-AGENCY MANAGEMENT
 				</h1>
@@ -101,7 +102,7 @@ export default function Home() {
 
 
 
-					
+
 					<CardContainer className="inter-var p-4">
 						<CardBody className="bg-[#e2f24b] relative group/card
 							dark:hover:shadow-2xl ☐ dark:hover:shadow-neutral-500/[0.1]
@@ -206,6 +207,8 @@ export default function Home() {
 
 				</div>
 			</section>
+
+			<Footer/>
 		</main>
 	);
 }
