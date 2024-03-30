@@ -41,7 +41,7 @@ const Navbar = (props: Props) => {
 					className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] "
 				>
 					
-					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-xs md:text-sm font-medium text-white border hover:text-black backdrop-blur-3xl hover:bg-[#e2f24b] ">
+					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full hover:bg-neutral-50 px-3 py-1 text-xs md:text-sm font-medium text-black border hover:text-black backdrop-blur-3xl bg-[#e2f24b] ">
 						{true ?"DASHBOARD":"SET-UP"}
 					</span>
 				</Link>
