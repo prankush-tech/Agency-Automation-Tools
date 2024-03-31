@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import {MenuIcon} from 'lucide-react'
+import { UserButton } from '@clerk/nextjs';
 
 type Props = {};
 
@@ -45,6 +46,8 @@ const Navbar = (props: Props) => {
 						{true ?"DASHBOARD":"SET-UP"}
 					</span>
 				</Link>
+
+				<UserButton/>
 				<MenuIcon className='md:hidden hover:cursor-pointer'/>
 			</aside>
 		</header>
@@ -56,3 +59,5 @@ export default Navbar;
 
 
 
+
+// https://www.googleapis.com/auth/drive.activity.readonly

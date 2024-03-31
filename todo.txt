@@ -1,0 +1,29 @@
+change the LOGO Icon
+change the theme in moving card marquee text card
+
+icons green ==> black===> white
+
+#e2f24b
+
+
+
+//make freinds / teams up
+// User model representing users of the system
+
+
+
+model User {
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  name        String?
+  friends     User[]   @relation("Friends", references: [id])
+  saasAccount SaasAccount?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Define additional fields as needed
+}
+
+// SaasAccount model representing accounts in the SaaS platform
+

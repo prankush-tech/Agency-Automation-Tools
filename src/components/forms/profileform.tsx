@@ -38,12 +38,13 @@ const ProfileForm = (props: Props) => {
                     name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel className="text-xl">Full Name</FormLabel>
+                            <FormLabel className="text-md">Full Name</FormLabel>
                             <FormControl>
                                 <Input
                                     {...field}
                                     placeholder="Name"
-                                    className='text-md'
+                                    className='text-sm md:text-md
+                                    border focus:border-neutral-50'
                                 />
                             </FormControl>
                             <FormMessage />
@@ -60,12 +61,13 @@ const ProfileForm = (props: Props) => {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel className="text-xl">Email Address</FormLabel>
+                            <FormLabel className="text-md">Email Address</FormLabel>
                             <FormControl>
                                 <Input
                                     {...field}
                                     placeholder="email"
-                                    className='text-md'
+                                    className='text-sm md:text-
+                                    border  focus:border-neutral-50'
                                     disabled
                                 />
                             </FormControl>
