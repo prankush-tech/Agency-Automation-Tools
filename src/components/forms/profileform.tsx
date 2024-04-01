@@ -28,22 +28,21 @@ const ProfileForm = (props: Props) => {
 
     return (
 
-
         // name of the user 
         <Form {...form}>
-            <form className="flex flex-col gap-6" onSubmit={form.handleSubmit(handleSubmit)}>
+            <form className="flex flex-col gap-7 md:min-w-[20rem] lg:min-w-[26rem] lg:gap-[10vh]" onSubmit={form.handleSubmit(handleSubmit)}>
                 <FormField
                     disabled={isLoading}
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel className="text-md">Full Name</FormLabel>
+                            <FormLabel className="text-md  lg:text-[1.3rem]">Full Name</FormLabel>
                             <FormControl>
                                 <Input
                                     {...field}
                                     placeholder="Name"
-                                    className='text-sm md:text-md
+                                    className='text-sm md:text-md lg:text-[1.3rem]
                                     border focus:border-neutral-50'
                                 />
                             </FormControl>
@@ -61,13 +60,13 @@ const ProfileForm = (props: Props) => {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel className="text-md">Email Address</FormLabel>
+                            <FormLabel className="text-md  lg:text-[1.3rem]">Email Address</FormLabel>
                             <FormControl>
                                 <Input
                                     {...field}
                                     placeholder="email"
                                     className='text-sm md:text-
-                                    border  focus:border-neutral-50'
+                                    border  lg:text-[1.3rem] focus:border-neutral-50'
                                     disabled
                                 />
                             </FormControl>
@@ -77,11 +76,11 @@ const ProfileForm = (props: Props) => {
                 />
                 <Button
                     type="submit"
-                    className="self-start rounded-3xl bg-[#e2f24b] dark:hover:bg-neutral-50 dark:hover:text-neutral-900 text-neutral-900  "
+                    className="self-start rounded-3xl lg:rounded-[3rem] bg-[#e2f24b] dark:hover:bg-neutral-50 dark:hover:text-neutral-900 text-neutral-900  lg:text-[1.3rem] lg:p-8 "
                 >
                     {isLoading ? (
                         <>
-                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             Saving
                         </>
                     ) : (

@@ -17,7 +17,7 @@ const SideBar = (props: Props) => {
 	const pathName = usePathname();
 
 	return (
-		<nav className=" dark:bg-neutral-900 h-screen flex justify-between overflow-x-hidden items-center flex-col  gap-10 py-4 w-[8rem] md:w-[10rem]">
+		<nav className=" dark:bg-neutral-900 h-[110vh] lg:h-[100vh] flex justify-between overflow-x-hidden items-center flex-col gap-1 py-4 w-[8rem] md:w-[10rem]">
 			<div className="flex items-center justify-center fixed z-10 right-2 bottom-2 ">
 				<ModeToggle />
 			</div>

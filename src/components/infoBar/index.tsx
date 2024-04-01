@@ -11,16 +11,16 @@ type Props = {};
 
 const InfoBar = (props: Props) => {
 	return (
-		<div className="flex flex-row justify-end gap-6 items-center px-4 py-4 w-full dark:bg-neutral-900 ">
+		<div className=" sticky top-0 flex flex-row justify-end gap-4 items-center px-4 py-4 w-full dark:bg-neutral-900 ">
 			<span className="flex items-center bg-muted px-4 rounded-full">
 				<Search />
-				<Input placeholder="QuickSearch" className="border-none bg-transparent" />
+				<Input placeholder="Find" className="border-none bg-transparent" />
 			</span>
 
 			<TooltipProvider>
 				<Tooltip delayDuration={0}>
 					<TooltipTrigger>
-						<Mail />
+						<Mail size={16} />
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Contact Support</p>
@@ -32,7 +32,7 @@ const InfoBar = (props: Props) => {
 			<TooltipProvider>
 				<Tooltip delayDuration={0}>
 					<TooltipTrigger>
-						<Book />
+						<Book size={16} />
 					</TooltipTrigger>
 					<TooltipContent>
 						<p>Guide</p>
