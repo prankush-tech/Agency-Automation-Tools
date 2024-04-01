@@ -62,7 +62,7 @@ const Settings = async (props: Props) => {
 
 	return (
 		<div className="felx felx-col gap-4 ">
-			<h1 className="text-xl lg:text-2xl sticky top-0 z-[10] p-4 bg-background/50 backdrop-blur-lg flex items-center border-b font-bold">
+			<h1 className="text-xl lg:text-2xl sticky top-0 z-[10] p-4 bg-background/50 backdrop-blur-lg flex items-center border-t border-x-2 font-bold rounded-t-2xl border-b">
 				<span>Settings</span>
 			</h1>
 			<div className="flex flex-col gap-4 p-6">
@@ -73,15 +73,15 @@ const Settings = async (props: Props) => {
 
 				<div className="flex flex-col md:flex-row w-full justify-evenly gap-5">
 
-				<ProfilePicture
-					onDelete={removeProfileImage}
-					userImage={user?.profileImage || ''}
-					onUpload={uploadProfileImage}
-				/>
-				<ProfileForm 
-					user={user}
-					onUpdate={updateUserInfo}
-				/>
+					<ProfilePicture
+						onDelete={removeProfileImage}
+						userImage={user?.profileImage || ''}
+						onUpload={uploadProfileImage}
+					/>
+					<ProfileForm
+						user={user}
+						onUpdate={updateUserInfo}
+					/>
 				</div>
 			</div>
 		</div>

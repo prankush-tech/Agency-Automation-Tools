@@ -9,39 +9,33 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Stripe",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "#",
+    title: "GOOGLE DRIVE",
+    description: "Automate messages and notifications, enhancing collaboration and organization on Google Drive.",
+    link: "#"
   },
   {
-    title: "Netflix",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "#",
+    title: "NOTION",
+    description: "Effortlessly automate messages within Notion docs to streamline communication and productivity.",
+    link: "#"
   },
   {
-    title: "Google",
-    description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "#",
+    title: "WORKFLOW",
+    description: "Securely automate tasks across platforms for accelerated workflow efficiency and seamless integration.",
+    link: "#"
   },
   {
-    title: "Meta",
-    description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "#",
+    title: "SLACK",
+    description: "Automate messages and notifications on Slack for improved team communication and productivity.",
+    link: "#"
   },
   {
-    title: "Amazon",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "#",
+    title: "DASHBOARD",
+    description: "Visualize comprehensive data sets in a centralized dashboard for informed decision-making and growth strategies.",
+    link: "#"
   },
   {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "#",
+    title: "VIDEO CHATS",
+    description: "Engage in live video chat calls, fostering real-time collaboration and connection with your agency partners.",
+    link: "#"
   },
 ];

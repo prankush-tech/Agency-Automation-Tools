@@ -15,6 +15,7 @@ import { Footer } from '@/components/global/footer';
 export default function Home() {
 	return (
 		<main >
+			<div className="absolute top-0 z-[-2] h-screen w-screen dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,0,0.2),rgba(255,255,255,0))]   bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,0,0.4),rgba(255,255,255,0))]"></div>
 			<Navbar />
 			<section className="relative p-2 md:p-10 mt-24">
 

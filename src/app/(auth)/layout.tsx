@@ -13,8 +13,8 @@ const layout = ({ children }: Props) => {
 				<div className="text-lg text-center">
 					<CopyButton />
 				</div>
-			)} */}
-			<p className='font-sans text-xs pb-2 lg:p-5'>If DEMO doesn&apos;t work, create new</p>
+			)}
+			<p className='font-sans text-xs pb-2 lg:p-5'>If DEMO doesn&apos;t work, create new</p> */}
 			{children}
 		</div>
 	);
