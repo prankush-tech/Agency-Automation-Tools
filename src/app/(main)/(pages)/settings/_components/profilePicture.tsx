@@ -25,7 +25,7 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
 
   return (
     <div className='flex flex-col justify-start lg:gap-5'>
-      <p className='text-md text-white'>Profile Picture</p>
+      <p className='text-md text-neutral-900 dark:text-neutral-50'>Profile Picture</p>
 
       <div className="flex h-[30vh] flex-col items-center justify-center">
         {userImage ? (

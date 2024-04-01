@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -10,9 +10,12 @@ import { Button } from '../ui/button'
 import { Loader2 } from 'lucide-react';
 
 
-interface Props { }
+interface Props { 
+    user: any
+    onUpdate?: any
+}
 
-const ProfileForm = (props: Props) => {
+const ProfileForm = ({user,onUpdate}: Props) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const form = useForm<z.infer<typeof EditProfileSchema>>({
@@ -24,7 +27,15 @@ const ProfileForm = (props: Props) => {
         }
     });
 
-    const handleSubmit = () => { };
+    const handleSubmit = async (values: z.infer<typeof EditProfileSchema>) => { 
+        setIsLoading(true)
+        await onUpdate(values.name)
+        setIsLoading(false)
+    };
+
+    useEffect(()=>{
+        form.reset({name:user.name, email:user.email})
+    },[user])
 
     return (
 

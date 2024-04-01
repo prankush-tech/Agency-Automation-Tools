@@ -68,7 +68,7 @@ const Settings = async (props: Props) => {
 			<div className="flex flex-col gap-4 p-6">
 				<div>
 					<h2 className="text-md font-bold">User Profile</h2>
-					<p className="text-sm text-white/50">Add or update your information</p>
+					<p className="text-sm  text-neutral-600 dark:text-neutral-200">Add or update your information</p>
 				</div>
 
 				<div className="flex flex-col md:flex-row w-full justify-evenly gap-5">
@@ -78,7 +78,10 @@ const Settings = async (props: Props) => {
 					userImage={user?.profileImage || ''}
 					onUpload={uploadProfileImage}
 				/>
-				<ProfileForm />
+				<ProfileForm 
+					user={user}
+					onUpdate={updateUserInfo}
+				/>
 				</div>
 			</div>
 		</div>
