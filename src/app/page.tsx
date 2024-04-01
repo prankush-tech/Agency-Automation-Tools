@@ -19,7 +19,7 @@ export default function Home() {
 			<section className="relative p-2 md:p-10 mt-24">
 
 				<h1 className="text-center text-3xl md:text-5xl lg:text-9xl font-bold lg:mt-16  mt-4 dark:text-neutral-50">
-					ZENCY-AGENCY MANAGEMENT
+					ZENCY-AUTOMATE MANAGEMENT
 				</h1>
 				<p className="text-center text-neutral-600 m-2 md:text-xl md:m-6 lg:mb-24 dark:text-neutral-400">
 					Manage all your agency work in one place. With absolute Automation

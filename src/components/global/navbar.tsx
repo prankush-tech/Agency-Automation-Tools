@@ -2,11 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import {MenuIcon} from 'lucide-react'
-import { UserButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs';
+
 
 type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = async(props: Props) => {
+	const user = await currentUser()
+
+
 	return (
 		<header className="fixed right-0 left-0 top-0 py-4 px-4 backdrop-blur-lg z-[100] flex items-center border-b-[0.1em] border-neutral-800 justify-between">
 			<aside className="flex items-center gap-[2px]">
@@ -43,11 +47,9 @@ const Navbar = (props: Props) => {
 				>
 					
 					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full hover:bg-neutral-50 px-3 py-1 text-xs md:text-sm font-medium text-black border hover:text-black backdrop-blur-3xl bg-[#e2f24b] ">
-						{true ?"DASHBOARD":"SET-UP"}
+						{user?"DASHBOARD":"START"}
 					</span>
 				</Link>
-
-				<UserButton/>
 				<MenuIcon className='md:hidden hover:cursor-pointer'/>
 			</aside>
 		</header>
@@ -60,4 +62,3 @@ export default Navbar;
 
 
 
-// https://www.googleapis.com/auth/drive.activity.readonly
