@@ -40,7 +40,7 @@ const InfoBar = (props: Props) => {
 				</Tooltip>
 			</TooltipProvider>
 			<UserButton
-				afterSignOutUrl='/'
+				
 			/>
 		</div>
 	);
