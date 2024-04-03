@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Navbar from '@/components/global/navbar';
 import { BentoGridSecondDemo } from '@/components/global/bentoGrid';
-
 import Button from '@/components/global/ui/button';
 import { CardHoverEffectDemo } from '@/components/global/cardGrid';
 import { InfiniteMovingCards } from '@/components/global/infiniteMovingCards';
@@ -9,10 +7,12 @@ import { clients } from '@/lib/constants';
 import { CardBody, CardContainer, CardItem } from '@/components/global/3d-card';
 import { CheckIcon } from 'lucide-react';
 import { Footer } from '@/components/global/footer';
-
+import Link from 'next/link';
 
 
 export default function Home() {
+	
+
 	return (
 		<main >
 			<div className="absolute top-0 z-[-2] h-screen w-screen dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,0,0.2),rgba(255,255,255,0))]   bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,0,0.4),rgba(255,255,255,0))]"></div>
@@ -25,7 +25,10 @@ export default function Home() {
 				<p className="text-center text-neutral-600 m-2 md:text-xl md:m-6 lg:mb-24 dark:text-neutral-400">
 					Manage all your agency work in one place. With absolute Automation
 				</p>
-				<Button text={"GET STARTED"} />
+				<Link href='/dashboard'>
+					<Button text={"GET STARTED"} />
+				</Link>
+				{/* <Button text={"GET STARTED"} /> */}
 				<BentoGridSecondDemo />
 			</section>
 
@@ -45,7 +48,7 @@ export default function Home() {
 					AUTOMATION  <br /> &quot;Trend&quot;
 				</h1>
 				<CardHoverEffectDemo />
-				<Button text={"EXPLORE"} />
+				<Button text={"EXPLORE"}  />
 			</section>
 
 			<section className="mb-36">

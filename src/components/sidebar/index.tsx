@@ -17,7 +17,7 @@ const SideBar = (props: Props) => {
 	const pathName = usePathname();
 
 	return (
-		<nav className=" dark:bg-neutral-900 h-[100vh] flex justify-between overflow-hidden items-center flex-col gap-1 py-4 w-[8rem] md:w-[10rem] z-[100]">
+		<nav className=" dark:bg-neutral-900 h-[100vh] flex justify-between overflow-hidden items-center flex-col gap-1 py-4 w-[8rem] md:w-[10rem] bg-neutral-50">
 			<div className="flex items-center justify-center fixed z-10 right-2 bottom-2 ">
 				<ModeToggle />
 			</div>
@@ -26,12 +26,12 @@ const SideBar = (props: Props) => {
 					<div className="flex items-center justify-center hover:scale-125 duration-200 ">
 						<Image
 							src="/fuzzieLogo.png"
-							width={10}
-							height={10}
+							width={12}
+							height={12}
 							alt="Zency"
 							className="shadow-sm invert dark:invert-0"
 						/>
-						<p className="text-xl font-bold dark:text-neutral-50 ">ZEN.</p>
+						<p className="text-2xl font-bold dark:text-neutral-50 p-1">ZEN.</p>
 					</div>
 				</Link>
 
