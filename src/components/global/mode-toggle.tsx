@@ -17,7 +17,7 @@ export function ModeToggle() {
   const { setTheme } = useTheme()
 
 
-  const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
+  // const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
   const setLightTheme = useplannerTheme((state: any) => state.setLightTheme);
   const setDarkTheme = useplannerTheme((state: any) => state.setDarkTheme);
 
