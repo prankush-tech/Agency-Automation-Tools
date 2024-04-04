@@ -10,6 +10,7 @@ import { Footer } from '@/components/global/footer';
 import Link from 'next/link';
 
 
+
 export default function Home() {
 	
 
@@ -23,16 +24,13 @@ export default function Home() {
 					ZENCY-AUTOMATE MANAGEMENT
 				</h1>
 				<p className="text-center text-neutral-600 m-2 md:text-xl md:m-6 lg:mb-24 dark:text-neutral-400">
-					Manage all your agency work in one place. With absolute Automation
+				⚡Manage all your agency work in one place with absolute Automation⚡.
 				</p>
 				<Link href='/dashboard'>
-					<Button text={"GET STARTED"} />
+					<Button text={`GET STARTED🎓`} />
 				</Link>
-				{/* <Button text={"GET STARTED"} /> */}
 				<BentoGridSecondDemo />
 			</section>
-
-
 
 			<section className="flex justify-center">
 				<InfiniteMovingCards className="md:mt-[8rem] mt-[4rem]"
@@ -50,6 +48,7 @@ export default function Home() {
 				<CardHoverEffectDemo />
 				<Button text={"EXPLORE"}  />
 			</section>
+
 
 			<section className="mb-36">
 				<div className="flex flex-wrap items-center justify-center flex-col md:flex-row gap-12 mt-12">

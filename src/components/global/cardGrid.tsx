@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HoverEffect } from "./ui/cardEffect";
 
 export function CardHoverEffectDemo() {
