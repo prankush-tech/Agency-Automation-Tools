@@ -11,10 +11,10 @@ type Props = {};
 
 const InfoBar = (props: Props) => {
 	return (
-		<div className=" sticky top-0 flex flex-row justify-end gap-4 items-center px-4 py-4 w-full dark:bg-neutral-900 ">
+		<div className=" sticky top-0 flex flex-row justify-end gap-4 items-center px-4 py-6 w-full bg-neutral-50 dark:bg-neutral-900 z-[20]">
 			<span className="flex items-center bg-muted px-4 rounded-full">
 				<Search />
-				<Input placeholder="Find" className="border-none bg-transparent" />
+				<Input placeholder="Find" className="" />
 			</span>
 
 			<TooltipProvider>
