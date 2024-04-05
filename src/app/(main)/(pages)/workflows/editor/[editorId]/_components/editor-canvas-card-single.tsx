@@ -15,7 +15,7 @@ const EditorCanvasCardSingle = ({ data }: { data: EditorCanvasCardType }) => {
 
 	const logo = useMemo(
 		() => {
-			return <EditorCanvasIconHelper type={data.type} />;
+			return <EditorCanvasIconHelper classString='' type={data.type} />;
 		},
 		[ data ]
 	);

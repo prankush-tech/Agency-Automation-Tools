@@ -53,10 +53,12 @@ const Workflow = ({name,id,description,publish}: Props) => {
               width={30}
               className="object-contain saturate-0"
             />
+           
           </div>
-          <div className="">
-            <CardTitle className="text-lg">{name}</CardTitle>
+          <div className="p-1">
+          <CardTitle className="text-lg">{name}</CardTitle>
             <CardDescription>{description}</CardDescription>
+            <CardDescription>{"Click to AUTOMATE"}</CardDescription>
           </div>
         </Link>
     </CardHeader>

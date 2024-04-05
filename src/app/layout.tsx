@@ -5,17 +5,14 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { ClerkProvider } from '@clerk/nextjs'
 import ModalProvider from "@/providers/modal-providers";
 import { Toaster } from "@/components/ui/sonner"
-import { useplannerTheme } from "@/store/plannerStore";
+
 
 
 const font = DM_Sans({ subsets: ["latin"] });
-
-
 export const metadata: Metadata = {
   title: "ZENCY",
+  
 };
-
-
 
 export default function RootLayout({
   children,
