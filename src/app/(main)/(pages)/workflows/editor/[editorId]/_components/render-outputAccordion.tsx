@@ -2,7 +2,7 @@ import { EditorState } from '@/providers/editor-providers'
 import { ToolsType } from '@/providers/toolProviders'
 import { useZency } from '@/store/zencyStore'
 import React from 'react'
-import ContentBasedOnTitle from './connection-basedOntitle'
+import ContentBasedOnTitle from './content-basedOntitle'
 
 
 type Props = {

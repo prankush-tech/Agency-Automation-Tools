@@ -21,11 +21,11 @@ const ToolsCard = ({ description, type, icon, title, connected }: Props) => {
           <Image src={icon} alt={title} height={30} width={30} className="object-contain saturate-0 invert" />
         </div>
         <div>
-          <CardTitle className="text-sm md:text-xl font-sans text-neutral-900">{title}</CardTitle>
-          <CardDescription className="text-xs md:text-[1rem] font-sans text-neutral-900">{description}</CardDescription>
+          <CardTitle className="text-sm md:text-lg  text-neutral-900">{title}</CardTitle>
+          <CardDescription className="text-xs md:text-[0.85rem]  text-neutral-900">{description}</CardDescription>
         </div>
       </CardHeader>
-      <div className="flex flex-col items-center gap-1 px-3 md:p-4 font-sans">
+      <div className="flex flex-col items-center gap-1 px-3 md:p-4 ">
         {connected[type] ? (
           <div className="border-bg-primary rounded-lg border-2 md:px-3 py-2 md:font-bold text-neutral-900">
             Connected
