@@ -14,8 +14,6 @@ const selector = (s:any)=>(
     }
 )
 
-
-
 const CustomHandle = (props: Props) => {
 
     const { state } = useEditor()

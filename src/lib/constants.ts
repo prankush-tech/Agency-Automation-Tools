@@ -14,7 +14,7 @@ export const clients = [ ...new Array(10) ].map((client, index) => ({
 
 export const SideBarIcons = [
 	{ name: 'Dashboard', Component: Home, href: '/dashboard' },
-	{ name: 'Workflows', Component: Workflows, href: '/workflows' },
+	{ name: 'Nodes', Component: Workflows, href: '/workflows' },
 	{ name: 'Settings', Component: Settings, href: '/settings' },
 	{ name: 'D-Tools', Component: Category, href: '/tools' },
 	{ name: 'Payments', Component: Payment, href: '/billing' },

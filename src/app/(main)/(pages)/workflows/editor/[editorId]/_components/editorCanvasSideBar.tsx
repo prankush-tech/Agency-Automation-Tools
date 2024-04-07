@@ -13,6 +13,7 @@ import {
     CardTitle,
   } from '@/components/ui/card'
 import EditorCanvasIconHelper from './editor-canvas-card-icon-helper'
+import { onDragStart } from '@/lib/editor-utils'
 
 
 
@@ -50,9 +51,9 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
                 key={cardKey}
                 draggable
                 className="w-full cursor-grab border-black bg-[#e2f24b]"
-                // onDragStart={(event) =>
-                //     onDragStart(event, cardKey as EditorCanvasTypes)
-                // }
+                onDragStart={(event) =>
+                    onDragStart(event, cardKey as EditorCanvasTypes)
+                }
               >
                 <CardHeader className="flex flex-row items-center gap-4 p-4">
                   <EditorCanvasIconHelper  type={cardKey as EditorCanvasTypes} classString={"dark:invert"} />
@@ -64,7 +65,7 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
               </Card>
             ))}
         </TabsContent>
-        </Tabs>
+        </Tabs> 
   )
 }
 

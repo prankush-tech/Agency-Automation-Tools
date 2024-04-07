@@ -6,6 +6,7 @@ import { Position, useNodeId } from 'reactflow';
 import EditorCanvasIconHelper from './editor-canvas-card-icon-helper';
 import CustomHandle from './custom.handle';
 import { Badge } from '@/components/ui/badge';
+import clsx from 'clsx';
 
 type Props = {};
 
@@ -15,17 +16,17 @@ const EditorCanvasCardSingle = ({ data }: { data: EditorCanvasCardType }) => {
 
 	const logo = useMemo(
 		() => {
-			return <EditorCanvasIconHelper classString='' type={data.type} />;
+			return <EditorCanvasIconHelper classString="" type={data.type} />;
 		},
-		[ data ]
+		[data]
 	);
 
 	return (
 		<React.Fragment>
 			{data.type !== 'Trigger' &&
-			data.type !== 'Google Drive' && (
-				<CustomHandle type="target" position={Position.Top} style={{ zIndex: 100 }} />
-			)}
+				data.type !== 'Google Drive' && (
+					<CustomHandle type="target" position={Position.Top} style={{ zIndex: 100 }} />
+				)}
 
 			<Card
 				onClick={(e) => {
@@ -57,6 +58,13 @@ const EditorCanvasCardSingle = ({ data }: { data: EditorCanvasCardType }) => {
 				<Badge variant="secondary" className="absolute right-2 top-2">
 					{data.type}
 				</Badge>
+				<div
+          className={clsx('absolute left-3 top-4 h-2 w-2 rounded-full', {
+            'bg-[#e2f24b]': Math.random() < 0.6,
+            'bg-neutral-50': Math.random() >= 0.6 && Math.random() < 0.8,
+            'bg-red-500': Math.random() >= 0.8,
+          })}
+        ></div>
 			</Card>
 			<CustomHandle type="source" position={Position.Bottom} id="a" />
 		</React.Fragment>

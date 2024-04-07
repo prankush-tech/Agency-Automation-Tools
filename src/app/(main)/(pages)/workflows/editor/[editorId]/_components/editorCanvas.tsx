@@ -16,7 +16,6 @@ import ReactFlow, {
 	addEdge
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-// import FlowInstance from './flow-instance'
 import EditorCanvasCardSingle from './editor-canvas-card-single';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { toast } from 'sonner';
@@ -28,7 +27,7 @@ import EditorCanvasSidebar from './editorCanvasSideBar';
 type Props = {};
 
 const initialNodes: EditorNodeType[] = [];
-const initialEdges: { id: string; source: string; target: string }[] = [];
+const initialEdges: { id: string; source: string; target: string; }[] = [];
 
 const EditorCanvas = (props: Props) => {
 	const { dispatch, state } = useEditor();
@@ -36,8 +35,6 @@ const EditorCanvas = (props: Props) => {
 	const [ edges, setEdges ] = useState(initialEdges);
 	const [ isWorkFlowLoading, setIsWorkFlowLoading ] = useState<boolean>(false);
 	const [ reactFlowInstance, setReactFlowInstance ] = useState<ReactFlowInstance>();
-
-
 
 
 
@@ -98,25 +95,25 @@ const EditorCanvas = (props: Props) => {
 	const onDrop = useCallback(
 		(event: any) => {
 			event.preventDefault();
-
+			console.log(event.dataTransfer)
 			const type: EditorCanvasCardType['type'] = event.dataTransfer.getData('application/reactflow');
 
-			// check if the dropped element is valid
 			if (typeof type === 'undefined' || !type) {
 				return;
 			}
-
 			const triggerAlreadyExists = state.editor.elements.find((node) => node.type === 'Trigger');
 
 			if (type === 'Trigger' && triggerAlreadyExists) {
 				toast('Only one trigger can be added to automations at the moment');
 				return;
 			}
-
-			// reactFlowInstance.project was renamed to reactFlowInstance.screenToFlowPosition
-			// and you don't need to subtract the reactFlowBounds.left/top anymore
-			// details: https://reactflow.dev/whats-new/2023-11-10
 			if (!reactFlowInstance) return;
+
+			//remove unwanted nodes
+
+
+
+			//calulate the positon of mouse pointer
 			const position = reactFlowInstance.screenToFlowPosition({
 				x: event.clientX,
 				y: event.clientY
@@ -212,9 +209,9 @@ const EditorCanvas = (props: Props) => {
 								<MiniMap position="bottom-left" className="!bg-background" zoomable pannable />
 								<Background
 									//@ts-ignore
-									variant="cross"
+									variant="dots"
 									gap={12}
-									size={1}
+									size={1.5}
 								/>
 							</ReactFlow>
 						)}
