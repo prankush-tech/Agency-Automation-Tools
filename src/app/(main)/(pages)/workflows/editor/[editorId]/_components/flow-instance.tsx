@@ -13,6 +13,7 @@ type Props = {
 };
 
 const FlowInstance = ({ children, edges, nodes }: Props) => {
+
 	const pathname = usePathname();
 	const [ isFlow, setIsFlow ] = useState([]);
 	const { nodeConnection } = useNodeConnections();
@@ -54,8 +55,8 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
 		onAutomateFlow()
 	  }, [edges])
 	return (
-		<div className="flex flex-col gap-2">
-			<div className="flex gap-3 p-4">
+		<div className="flex flex-col gap-2 ">
+			<div className="flex gap-3 p-4 justify-center">
 				<Button onClick={onFlowAutomation} disabled={isFlow.length < 1}>
 					Save
 				</Button>

@@ -5,7 +5,7 @@ import { useNodeConnections } from '@/providers/toolProviders'
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Separator } from "@/components/ui/separator"
-import { EditorCanvasDefaultCardTypes } from '@/lib/constants'
+import { AllTools, EditorCanvasDefaultCardTypes } from '@/lib/constants'
 import {
     Card,
     CardDescription,
@@ -14,7 +14,14 @@ import {
   } from '@/components/ui/card'
 import EditorCanvasIconHelper from './editor-canvas-card-icon-helper'
 import { onDragStart } from '@/lib/editor-utils'
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import RenderToolsAccordion from './render-accordion'
+import RenderOutputAccordion from './render-outputAccordion'
 
 
 type Props = {
@@ -27,10 +34,12 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
     const { nodeConnection } = useNodeConnections()
 
   return (
+    <aside>
+
     <Tabs
         defaultValue="actions"
         className="h-screen overflow-scroll pb-24"
-      >
+        >
         <TabsList className="bg-transparent flex">
           <TabsTrigger className='border shadow-sm' value="actions">Actions</TabsTrigger>
           <TabsTrigger className='border shadow-sm' value="settings">Settings</TabsTrigger>
@@ -39,22 +48,22 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
         <TabsContent
           value="actions"
           className="flex flex-col gap-4 p-4"
-        >
+          >
             {Object.entries(EditorCanvasDefaultCardTypes)
             .filter(
               ([_, cardType]) =>
-                (!nodes.length && cardType.type === 'Trigger') ||
-                (nodes.length && cardType.type === 'Action')
-            )
-            .map(([cardKey, cardValue]) => (
-              <Card
+              (!nodes.length && cardType.type === 'Trigger') ||
+              (nodes.length && cardType.type === 'Action')
+              )
+              .map(([cardKey, cardValue]) => (
+                <Card
                 key={cardKey}
                 draggable
                 className="w-full cursor-grab border-black bg-[#e2f24b]"
                 onDragStart={(event) =>
-                    onDragStart(event, cardKey as EditorCanvasTypes)
+                  onDragStart(event, cardKey as EditorCanvasTypes)
                 }
-              >
+                >
                 <CardHeader className="flex flex-row items-center gap-4 p-4">
                   <EditorCanvasIconHelper  type={cardKey as EditorCanvasTypes} classString={"dark:invert"} />
                   <CardTitle className="text-sm text-neutral-900">
@@ -65,7 +74,50 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
               </Card>
             ))}
         </TabsContent>
+
+        <TabsContent
+          value="settings"
+          className="-mt-6"
+          >
+          <div className="px-2 py-4 text-center text-xl font-bold">
+            {state.editor.selectedNode.data.title}
+          </div>
+
+
+          <Accordion type="multiple">
+            <AccordionItem
+              value="Options"
+              className="border-y-[1px] px-2"
+              >
+              <AccordionTrigger className="!no-underline">
+                Account
+              </AccordionTrigger>
+              <AccordionContent>
+                {AllTools.map((connection) => (
+                  <RenderToolsAccordion
+                  key={connection.title}
+                  state={state}
+                  connection={connection}
+                  />
+                  ))}
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="Expected Output"
+              className="px-2"
+              >
+              <AccordionTrigger className="!no-underline">
+                Action
+              </AccordionTrigger>
+              <RenderOutputAccordion
+                state={state}
+                nodeConnection={nodeConnection}
+              />
+            </AccordionItem>
+          </Accordion>
+          </TabsContent>
         </Tabs> 
+      </aside>
   )
 }
 

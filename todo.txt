@@ -1,5 +1,3 @@
-change the LOGO Icon
-change the theme in moving card marquee text card
 
 icons green ==> black===> white
 
@@ -45,3 +43,7 @@ const SignOutButton = () => {
     </button>
   );
 };
+
+
+
+//conneiction Based On tile (while setting page read)

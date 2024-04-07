@@ -170,7 +170,7 @@ const EditorCanvas = (props: Props) => {
 		<ResizablePanelGroup direction="horizontal">
 			<ResizablePanel defaultSize={70}>
 				<div className="flex h-full items-center justify-center">
-					<div style={{ width: '100%', height: '100%', paddingBottom: '70px' }} className="relative">
+					<div style={{ width: '100%', height: '100%', paddingBottom: '10px' }} className="relative">
 						{isWorkFlowLoading ? (
 							<div className="absolute flex h-full w-full items-center justify-center">
 								<svg
