@@ -13,6 +13,7 @@
     "@clerk/themes": "^1.7.10",
     "@excalidraw/excalidraw": "^0.17.3",
     "@hookform/resolvers": "^3.3.4",
+    "@notionhq/client": "^2.2.14",
     "@prisma/client": "^5.11.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",

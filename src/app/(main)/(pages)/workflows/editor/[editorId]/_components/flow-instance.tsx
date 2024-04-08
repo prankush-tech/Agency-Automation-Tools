@@ -31,7 +31,9 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
 
 		setIsFlow(flows);
 	};
-
+	useEffect(() => {
+		onAutomateFlow()
+	}, [edges])
 
     const onPublishWorkflow = useCallback(async () => {
         const response = await onFlowPublish(pathname.split('/').pop()!, true)
@@ -51,9 +53,7 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
 		},
 		[ nodeConnection ]
 	);
-	useEffect(() => {
-		onAutomateFlow()
-	  }, [edges])
+
 	return (
 		<div className="flex flex-col gap-2 ">
 			<div className="flex gap-3 p-4 justify-center">

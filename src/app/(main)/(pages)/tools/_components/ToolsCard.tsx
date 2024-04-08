@@ -14,20 +14,26 @@ type Props = {
 };
 
 const ToolsCard = ({ description, type, icon, title, connected }: Props) => {
+
+
+
+
+
+
   return (
-    <Card className="flex w-full items-center justify-between  bg-[#e2f24b]">
+    <Card className="flex w-full items-center justify-between ">
       <CardHeader className="flex flex-col gap-1">
         <div className="flex flex-row gap-1">
-          <Image src={icon} alt={title} height={30} width={30} className="object-contain saturate-0 invert" />
+          <Image src={icon} alt={title} height={30} width={30} className="object-contain saturate-0" />
         </div>
         <div>
-          <CardTitle className="text-sm md:text-lg  text-neutral-900">{title}</CardTitle>
-          <CardDescription className="text-xs md:text-[0.85rem]  text-neutral-900">{description}</CardDescription>
+          <CardTitle className="text-sm md:text-lg  ">{title}</CardTitle>
+          <CardDescription className="text-xs md:text-[0.85rem]  ">{description}</CardDescription>
         </div>
       </CardHeader>
       <div className="flex flex-col items-center gap-1 px-3 md:p-4 ">
         {connected[type] ? (
-          <div className="border-bg-primary rounded-lg border-2 md:px-3 py-2 md:font-bold text-neutral-900">
+          <div className="border-bg-primary rounded-lg border-2 md:px-3 py-2 md:font-bold ">
             Connected
           </div>
         ) : (

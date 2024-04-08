@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import {MenuIcon} from 'lucide-react'
-import { currentUser } from '@clerk/nextjs';
+import { UserButton, currentUser } from '@clerk/nextjs';
 
 
 type Props = {};
@@ -45,11 +45,11 @@ const Navbar = async(props: Props) => {
 					href="/dashboard"
 					className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] "
 				>
-					
 					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full hover:bg-neutral-50 px-3 py-1 text-xs md:text-sm font-medium text-black  hover:text-black backdrop-blur-3xl bg-[#e2f24b] ">
-						{user?"DASHBOARD":"START"}
+						{user?"DASHBOARD":"LETS GO"}
 					</span>
 				</Link>
+				
 				<MenuIcon className='md:hidden hover:cursor-pointer'/>
 			</aside>
 		</header>

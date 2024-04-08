@@ -2,7 +2,7 @@
 import { EditorCanvasTypes, EditorNodeType } from '@/lib/types'
 import { useEditor } from '@/providers/editor-providers'
 import { useNodeConnections } from '@/providers/toolProviders'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Separator } from "@/components/ui/separator"
 import { AllTools, EditorCanvasDefaultCardTypes } from '@/lib/constants'
@@ -13,7 +13,7 @@ import {
     CardTitle,
   } from '@/components/ui/card'
 import EditorCanvasIconHelper from './editor-canvas-card-icon-helper'
-import { onDragStart } from '@/lib/editor-utils'
+import { fetchBotSlackChannels, onConnections, onDragStart } from '@/lib/editor-utils'
 import {
   Accordion,
   AccordionContent,
@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/accordion"
 import RenderToolsAccordion from './render-accordion'
 import RenderOutputAccordion from './render-outputAccordion'
+import { useZency } from '@/store/zencyStore'
 
 
 type Props = {
@@ -32,6 +33,23 @@ const EditorCanvasSidebar = ({nodes}: Props) => {
 
     const { state } = useEditor()
     const { nodeConnection } = useNodeConnections()
+    const { googleFile, setSlackChannels } = useZency()
+
+    useEffect(() => {
+      if (state) {
+        onConnections(nodeConnection, state, googleFile)
+      }
+    }, [state])
+  
+    useEffect(() => {
+      if (nodeConnection.slackNode.slackAccessToken) {
+        fetchBotSlackChannels(
+          nodeConnection.slackNode.slackAccessToken,
+          setSlackChannels
+        )
+      }
+    }, [nodeConnection])
+
 
   return (
     <aside>
