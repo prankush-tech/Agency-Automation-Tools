@@ -105,6 +105,8 @@ const ContentBasedOnTitle = ({
 
                     <Input
                         type="text"
+                        className='border h-[4rem]'
+                        placeholder='Send a message...'
                         value={nodeConnectionType.content}
                         onChange={(event) => onContentChange(nodeConnection, title, event)}
                     />
