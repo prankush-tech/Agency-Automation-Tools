@@ -22,7 +22,7 @@ const UploadCareButton = ({ onUpload }: Props) => {
 			}
 		};
 		if (ctxProvider.current) {
-			ctxProvider.current.addEventListener('file-upload-success', handleUpload);
+			ctxProvider.current!.addEventListener('file-upload-success', handleUpload);
 		  }
 	}, []);
 
