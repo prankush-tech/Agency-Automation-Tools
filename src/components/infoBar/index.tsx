@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { UserButton } from '@clerk/nextjs';
-import { useBilling } from '@/providers/billing-providers';
+import { useBilling } from '../../../billing-providers';
 import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/paymentConnection';
 type Props = {};
 

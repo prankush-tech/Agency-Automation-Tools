@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Card, CardContent, CardDescription } from '@/components/ui/card'
-import { useBilling } from '@/providers/billing-providers'
+import { useBilling } from '../../../../../../billing-providers'
 
 type Props = {}
 
