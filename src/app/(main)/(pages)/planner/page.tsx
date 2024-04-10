@@ -23,11 +23,11 @@ const UIOptions = {
 
 
 const ExcalidrawPage = (props: Props) => {
-  const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
+//   const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
 
   return (
     <div className="flex justify-center h-[85%] items-center">
-      <Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
+      <Excalidraw theme='dark' UIOptions={UIOptions}>
         <WelcomeScreen>
           <WelcomeScreen.Hints.ToolbarHint>
             <p>ToolBar Hints</p>
