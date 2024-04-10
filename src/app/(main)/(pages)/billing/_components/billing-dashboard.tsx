@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useBilling } from '../../../../../../billing-providers'
+import { useBilling } from '../../../../../providers/billing-providers'
 import { SubscriptionCard } from './subscriptionCard'
 import CreditTracker from './creditTracker'
 

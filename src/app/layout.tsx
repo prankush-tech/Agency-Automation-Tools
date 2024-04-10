@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { ClerkProvider } from '@clerk/nextjs'
 import ModalProvider from "@/providers/modal-providers";
 import { Toaster } from "@/components/ui/sonner"
-import { BillingProvider } from "../../billing-providers";
+import { BillingProvider } from "../providers/billing-providers";
 
 
 
