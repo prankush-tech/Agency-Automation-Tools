@@ -56,7 +56,7 @@ const Category =  async (props: Props) => {
 	  if (!user) return null
 
 	  const onUserConnections = async () => {
-		console.log(database_id)
+
 		await onDiscordConnect(
 		  channel_id!,
 		  webhook_id!,

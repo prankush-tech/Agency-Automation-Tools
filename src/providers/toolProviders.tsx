@@ -43,7 +43,7 @@ export type ToolsType = {
   >
   isLoading: boolean
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-  [key: string]: any;
+
 }
 
 

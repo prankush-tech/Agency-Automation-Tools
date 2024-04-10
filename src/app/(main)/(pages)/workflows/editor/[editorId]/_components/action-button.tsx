@@ -20,7 +20,7 @@ type Props = {
 const ActionButton = ({ currentService, nodeConnection, channels, setChannels }: Props) => {
     
     const pathname = usePathname();
-
+    console.log(nodeConnection)
     const onSendDiscordMessage = useCallback(async () => {
             const response = await postContentToWebHook(
               nodeConnection.discordNode.content,
@@ -36,18 +36,13 @@ const ActionButton = ({ currentService, nodeConnection, channels, setChannels }:
           }, [nodeConnection.discordNode])
 
           const onStoreNotionContent = useCallback(async () => {
-            console.log(
-              nodeConnection.notionNode.databaseId,
-              nodeConnection.notionNode.accessToken,
-              nodeConnection.notionNode.content
-            )
+
             const response = await onCreateNewPageInDatabase(
               nodeConnection.notionNode.databaseId,
               nodeConnection.notionNode.accessToken,
               nodeConnection.notionNode.content
             )
 
-            console.log(response)
             
             if (response){
               nodeConnection.setNotionNode((prev: any) => ({
@@ -77,6 +72,10 @@ const ActionButton = ({ currentService, nodeConnection, channels, setChannels }:
           }, [nodeConnection.slackNode, channels])
 
           const onCreateLocalNodeTempate = useCallback(async () => {
+
+
+            
+
             if (currentService === 'Discord') {
               const response = await onCreateNodeTemplate(
                 nodeConnection.discordNode.content,
@@ -89,6 +88,7 @@ const ActionButton = ({ currentService, nodeConnection, channels, setChannels }:
               }
             }
             if (currentService === 'Slack') {
+              console.log(nodeConnection.slackNode.content)
               const response = await onCreateNodeTemplate(
                 nodeConnection.slackNode.content,
                 currentService,
@@ -97,6 +97,7 @@ const ActionButton = ({ currentService, nodeConnection, channels, setChannels }:
                 nodeConnection.slackNode.slackAccessToken
               )
 
+              console.log(response)
               if (response) {
                 toast.message(response)
               }

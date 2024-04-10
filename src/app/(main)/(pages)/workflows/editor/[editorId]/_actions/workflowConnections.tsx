@@ -17,12 +17,10 @@ export const onCreateNodesEdges = async (
       flowPath: flowPath,
     },
   })
-  console.log(flow)
   if (flow) return { message: 'flow saved' }
 }
 
 export const onFlowPublish = async (workflowId: string, state: boolean) => {
-  console.log(state)
   const published = await db.workflows.update({
     where: {
       id: workflowId,

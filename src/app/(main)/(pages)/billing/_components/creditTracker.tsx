@@ -25,7 +25,8 @@ const CreditTracker = ({ credits, tier }: Props) => {
           />
           <div className="flex justify-end">
             <p>
-              {credits}/
+                
+              {tier == 'Unlimited'? "": credits}/
               {tier == 'Free' ? 10 : tier == 'Pro' ? 100 : 'Unlimited'}
             </p>
           </div>

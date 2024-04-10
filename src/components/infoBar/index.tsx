@@ -7,11 +7,38 @@ import { Input } from '@/components/ui/input';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { UserButton } from '@clerk/nextjs';
+import { useBilling } from '@/providers/billing-providers';
+import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/paymentConnection';
 type Props = {};
 
 const InfoBar = (props: Props) => {
+	const { credits, tier, setCredits, setTier } = useBilling();
+
+	const onGetPayment = async () => {
+		const response = await onPaymentDetails();
+		if (response) {
+			setTier(response.tier!);
+			setCredits(response.credits!);
+		}
+	};
+
+	useEffect(() => {
+		onGetPayment();
+	}, []);
+
 	return (
 		<div className=" sticky top-0 flex flex-row justify-end gap-4 items-center px-4 py-6 w-full bg-neutral-50 dark:bg-neutral-900 z-[20]">
+			<span className="flex items-center gap-2 font-bold">
+				<p className="text-sm font-light text-gray-300">Credits</p>
+				{tier == 'Unlimited' ? (
+					<span>Unlimited</span>
+				) : (
+					<span>
+						{credits}/{tier == 'Free' ? '10' : tier == 'Pro' && '100'}
+					</span>
+				)}
+			</span>
+
 			<span className="flex items-center bg-muted px-4 rounded-full">
 				<Search />
 				<Input placeholder="Find" className="" />
@@ -39,9 +66,7 @@ const InfoBar = (props: Props) => {
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
-			<UserButton
-				afterSignOutUrl='/'
-			/>
+			<UserButton afterSignOutUrl="/" />
 		</div>
 	);
 };

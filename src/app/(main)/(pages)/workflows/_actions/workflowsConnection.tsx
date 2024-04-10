@@ -2,6 +2,7 @@
 import { Option } from '@/components/ui/multipleSelector'
 import { db } from '@/lib/database'
 import { auth, currentUser } from '@clerk/nextjs'
+import { channel } from 'diagnostics_channel'
 
 export const getGoogleListener = async () => {
     const { userId } = auth()
@@ -21,7 +22,6 @@ export const getGoogleListener = async () => {
   }
 
   export const onFlowPublish = async (workflowId: string, state: boolean) => {
-    console.log(state)
     const published = await db.workflows.update({
       where: {
         id: workflowId,
@@ -30,7 +30,7 @@ export const getGoogleListener = async () => {
         publish: state,
       },
     })
-  
+
     if (published.publish) return 'Workflow published'
     return 'Workflow unpublished'
   }
@@ -43,6 +43,7 @@ export const getGoogleListener = async () => {
     accessToken?: string,
     notionDbId?: string
   ) => {
+  
     if (type === 'Discord') {
       const response = await db.workflows.update({
         where: {
@@ -67,8 +68,9 @@ export const getGoogleListener = async () => {
           slackAccessToken: accessToken,
         },
       })
-  
-      if (response) {
+
+      if (response) 
+      {
         const channelList = await db.workflows.findUnique({
           where: {
             id: workflowId,
@@ -77,16 +79,19 @@ export const getGoogleListener = async () => {
             slackChannels: true,
           },
         })
-  
+        
+        console.log(channelList)
         if (channelList) {
           //remove duplicates before insert
+          console.log(channels,"sakjhdsakjhfjsahkfj")
           const NonDuplicated = channelList.slackChannels.filter(
             (channel) => channel !== channels![0].value
           )
-  
-          NonDuplicated!
-            .map((channel) => channel)
-            .forEach(async (channel) => {
+          console.log(NonDuplicated,"NonDuplicated")
+
+          
+          NonDuplicated!.map((channel) => channel).forEach(async (channel) => {
+              console.log(channel,"Channel inside channels")
               await db.workflows.update({
                 where: {
                   id: workflowId,
@@ -102,8 +107,9 @@ export const getGoogleListener = async () => {
           return 'Slack template saved'
         }
         channels!
-          .map((channel) => channel.value)
-          .forEach(async (channel) => {
+        .map((channel) => channel.value)
+        .forEach(async (channel) => {
+            console.log(channel)
             await db.workflows.update({
               where: {
                 id: workflowId,

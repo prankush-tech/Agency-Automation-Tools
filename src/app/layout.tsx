@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { ClerkProvider } from '@clerk/nextjs'
 import ModalProvider from "@/providers/modal-providers";
 import { Toaster } from "@/components/ui/sonner"
+import { BillingProvider } from "@/providers/billing-providers";
 
 
 
@@ -44,10 +45,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <BillingProvider>
             <ModalProvider>
               {children}
               <Toaster />
             </ModalProvider>
+            </BillingProvider>
           </ThemeProvider>
 
         </body>

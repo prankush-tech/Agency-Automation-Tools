@@ -53,7 +53,6 @@ const ContentBasedOnTitle = ({
 	        '/api/drive'
 	      )
 	      if (response) {
-	        console.log(response.data.message.files[0])
 	        toast.message("Fetched File")
 	        setFile(response.data.message.files[0])
 	      } else {
@@ -64,7 +63,7 @@ const ContentBasedOnTitle = ({
 	  }, [])
 
 
-
+	  //@ts-ignore
 	const nodeConnectionType: any = nodeConnection[nodeMapper[title]];
 	if (!nodeConnectionType) return <p>Not connected</p>;
 
