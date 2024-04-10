@@ -1,43 +1,43 @@
 'use client';
 import React from 'react';
+import dynamic from 'next/dynamic';
+import { WelcomeScreen } from '@excalidraw/excalidraw';
 import { useplannerTheme } from '@/store/plannerStore';
-import { Excalidraw, WelcomeScreen, convertToExcalidrawElements } from "@excalidraw/excalidraw";
-// import "@excalidraw/excalidraw/index.css";
 
-//@ts-ignore
-  console.info(convertToExcalidrawElements([{
-    type: "rectangle",
-    id: "rect-1",
-    width: 186.47265625,
-    height: 141.9765625,
-  },]));
-
-type Props={}
+type Props = {};
 
 const UIOptions = {
-  canvasActions: {
-    changeViewBackgroundColor: false
-  }
+	canvasActions: {
+		changeViewBackgroundColor: false
+	}
 };
 
-
+const Excalidraw = dynamic(
+	async () => {
+		const excalidraw = await import('@excalidraw/excalidraw');
+		return excalidraw.Excalidraw;
+	},
+	{
+		ssr: false
+	}
+);
 
 const ExcalidrawPage = (props: Props) => {
-//   const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
+	const plannerTheme = useplannerTheme((state: any) => state.plannerTheme);
 
-  return (
-    <div className="flex justify-center h-[85%] items-center">
-      <Excalidraw theme='dark' UIOptions={UIOptions}>
-        <WelcomeScreen>
-          <WelcomeScreen.Hints.ToolbarHint>
-            <p>ToolBar Hints</p>
-          </WelcomeScreen.Hints.ToolbarHint>
-          <WelcomeScreen.Hints.MenuHint />
-          <WelcomeScreen.Hints.HelpHint />
-        </WelcomeScreen>
-      </Excalidraw>
-    </div>
-  );
+	return (
+		<div className="flex justify-center h-[85%] items center">
+			<Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
+				<WelcomeScreen>
+					<WelcomeScreen.Hints.ToolbarHint>
+						<p> ToolBar Hints </p>
+					</WelcomeScreen.Hints.ToolbarHint>
+					<WelcomeScreen.Hints.MenuHint />
+					<WelcomeScreen.Hints.HelpHint />
+				</WelcomeScreen>
+			</Excalidraw>
+		</div>
+	);
 };
 
 export default ExcalidrawPage;
