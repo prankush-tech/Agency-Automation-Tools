@@ -23,6 +23,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { EditorCanvasDefaultCardTypes } from '@/lib/constants';
 import FlowInstance from './flow-instance';
 import EditorCanvasSidebar from './editorCanvasSideBar';
+import { onGetNodesEdges } from '../../../_actions/workflowsConnection';
+import { usePathname } from 'next/navigation';
 
 type Props = {};
 
@@ -36,7 +38,7 @@ const EditorCanvas = (props: Props) => {
 	const [ isWorkFlowLoading, setIsWorkFlowLoading ] = useState<boolean>(false);
 	const [ reactFlowInstance, setReactFlowInstance ] = useState<ReactFlowInstance>();
 
-
+	const pathname = usePathname()
 
 	const onDragOver = useCallback((event: any) => {
 		event.preventDefault();
@@ -81,16 +83,16 @@ const EditorCanvas = (props: Props) => {
 		});
 	};
 
-	// const onGetWorkFlow = async () => {
-	//   setIsWorkFlowLoading(true)
-	//   const response = await onGetNodesEdges(pathname.split('/').pop()!)
-	//   if (response) {
-	//     setEdges(JSON.parse(response.edges!))
-	//     setNodes(JSON.parse(response.nodes!))
-	//     setIsWorkFlowLoading(false)
-	//   }
-	//   setIsWorkFlowLoading(false)
-	// }
+	const onGetWorkFlow = async () => {
+	  setIsWorkFlowLoading(true)
+	  const response = await onGetNodesEdges(pathname.split('/').pop()!)
+	  if (response) {
+	    setEdges(JSON.parse(response.edges!))
+	    setNodes(JSON.parse(response.nodes!))
+	    setIsWorkFlowLoading(false)
+	  }
+	  setIsWorkFlowLoading(false)
+	}
 
 	const onDrop = useCallback(
 		(event: any) => {
@@ -162,9 +164,9 @@ const EditorCanvas = (props: Props) => {
 		}),
 		[]
 	);
-	// useEffect(() => {
-	//   onGetWorkFlow()
-	// }, [])
+	useEffect(() => {
+	  onGetWorkFlow()
+	}, [])
 
 	return (
 		<ResizablePanelGroup direction="horizontal">

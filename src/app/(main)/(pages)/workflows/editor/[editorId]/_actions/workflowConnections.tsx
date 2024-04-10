@@ -17,7 +17,7 @@ export const onCreateNodesEdges = async (
       flowPath: flowPath,
     },
   })
-
+  console.log(flow)
   if (flow) return { message: 'flow saved' }
 }
 
