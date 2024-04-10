@@ -21,7 +21,7 @@ const ExcalidrawPage = (props: Props) => {
 
   return (
     <div className="flex justify-center h-[85%] items-center">
-      <Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
+      {/* <Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
         <WelcomeScreen>
           <WelcomeScreen.Hints.ToolbarHint>
             <p>ToolBar Hints</p>
@@ -29,7 +29,7 @@ const ExcalidrawPage = (props: Props) => {
           <WelcomeScreen.Hints.MenuHint />
           <WelcomeScreen.Hints.HelpHint />
         </WelcomeScreen>
-      </Excalidraw>
+      </Excalidraw> */}
     </div>
   );
 };
