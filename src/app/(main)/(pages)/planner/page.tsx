@@ -1,5 +1,5 @@
 'use client';
-import React, { useContext, useState } from 'react';
+
 import dynamic from 'next/dynamic';
 import { WelcomeScreen } from '@excalidraw/excalidraw';
 import { useplannerTheme } from '@/store/plannerStore';
@@ -12,11 +12,8 @@ const UIOptions = {
 	}
 };
 
-const LoadingScreen = () => {
-	return <div className="flex justify-center items-center h-full w-full">Loading...</div>;
-};
 
-const Excalidraw = dynamic(
+const Excalidraw = typeof window !== 'undefined'? dynamic(
 	async () => {
 		const excalidraw = await import('@excalidraw/excalidraw');
 		return excalidraw.Excalidraw;
@@ -46,7 +43,7 @@ const Excalidraw = dynamic(
 			)
 		}
 	}
-);
+):null;
 
 const ExcalidrawPage = (props: Props) => {
 
@@ -54,15 +51,17 @@ const ExcalidrawPage = (props: Props) => {
 
 	return (
 		<div className="flex justify-center h-[85%] items center">
-			<Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
-				<WelcomeScreen>
-					<WelcomeScreen.Hints.ToolbarHint>
-						<p> ToolBar Hints </p>
-					</WelcomeScreen.Hints.ToolbarHint>
-					<WelcomeScreen.Hints.MenuHint />
-					<WelcomeScreen.Hints.HelpHint />
-				</WelcomeScreen>
-			</Excalidraw>
+			{Excalidraw && (
+				<Excalidraw theme={plannerTheme} UIOptions={UIOptions}>
+					<WelcomeScreen>
+						<WelcomeScreen.Hints.ToolbarHint>
+							<p> ToolBar Hints </p>
+						</WelcomeScreen.Hints.ToolbarHint>
+						<WelcomeScreen.Hints.MenuHint />
+						<WelcomeScreen.Hints.HelpHint />
+					</WelcomeScreen>
+				</Excalidraw>
+			)}
 		</div>
 	);
 };
