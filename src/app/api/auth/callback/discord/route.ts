@@ -2,10 +2,12 @@ import axios from 'axios'
 import { NextResponse, NextRequest } from 'next/server'
 import url from 'url'
 
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) 
+{
   const code = req.nextUrl.searchParams.get('code')
   if (code) {
     const data = new url.URLSearchParams()
+    console.log(data,code,"asfkhajfhsakjhf")
     data.append('client_id', process.env.DISCORD_CLIENT_ID!)
     data.append('client_secret', process.env.DISCORD_CLIENT_SECRET!)
     data.append('grant_type', 'authorization_code')
