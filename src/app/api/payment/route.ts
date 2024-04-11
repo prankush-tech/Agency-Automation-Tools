@@ -29,8 +29,8 @@ export async function POST(req: NextRequest) {
     ],
     mode: 'subscription',
     success_url:
-      'https://localhost:3000/billing?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: 'https://localhost:3000/billing',
+      'https://prankush-agency.vercel.app/billing?session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: 'https://prankush-agency.vercel.app/billing',
   })
   return NextResponse.json(session.url)
 }
