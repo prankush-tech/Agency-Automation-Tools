@@ -6,7 +6,6 @@ export async function GET(req: NextRequest)
 {
   const code = req.nextUrl.searchParams.get('code')
 
-
   if (code) 
   {
     const data = new url.URLSearchParams()
