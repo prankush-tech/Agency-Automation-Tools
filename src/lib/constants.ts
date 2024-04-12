@@ -13,14 +13,14 @@ export const clients = [ ...new Array(10) ].map((client, index) => ({
 }));
 
 export const SideBarIcons = [
-	{ name: 'Settings', Component: Settings, href: '/settings' },
-	{ name: 'D-Tools', Component: Category, href: '/tools' },
+	{ name: 'Planner', Component: ExcalidrawPage, href: '/planner' },
 	{ name: 'Nodes', Component: Workflows, href: '/workflows' },
 	{ name: 'Dashboard', Component: Home, href: '/dashboard' },
+	{ name: 'Settings', Component: Settings, href: '/settings' },
+	{ name: 'Tools', Component: Category, href: '/tools' },
 	{ name: 'Payments', Component: Payment, href: '/billing' },
-	{ name: 'Work Logs', Component: Logs, href: '/logs' },
-	{ name: 'Templates', Component: Templates, href: '/templates' },
-	{ name: 'Planner', Component: ExcalidrawPage, href: '/planner' },
+	// { name: 'Work Logs', Component: Logs, href: '/logs' },
+	// { name: 'Templates', Component: Templates, href: '/templates' },
 ];
 
 export const AllTools: Tools[] = [

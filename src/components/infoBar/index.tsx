@@ -29,7 +29,7 @@ const InfoBar = (props: Props) => {
 	return (
 		<div className=" sticky top-0 flex flex-row justify-end gap-4 items-center px-4 py-6 w-full bg-neutral-50 dark:bg-neutral-900 z-[20]">
 			<span className="flex items-center gap-2 font-bold">
-				<p className="text-sm font-light text-gray-300">Credits</p>
+				<p className="text-sm font-light text-neutral-900 dark:text-neutral-100">Credits</p>
 				{tier == 'Unlimited' ? (
 					<span>Unlimited</span>
 				) : (

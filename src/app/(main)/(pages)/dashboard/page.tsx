@@ -1,4 +1,8 @@
+import CardDashboard from '@/components/dashboard/CardDashboard';
+import ChartDashboard from '@/components/dashboard/ChartDashboard';
+import UsersDashboard from '@/components/dashboard/UsersDashboard';
 import React from 'react';
+
 
 type Props = {};
 
@@ -8,6 +12,13 @@ const DashboardPage = (props: Props) => {
 			<h1 className="text-xl lg:text-2xl sticky top-0 z-[10] p-4 bg-background/50 backdrop-blur-lg flex items-center border-t border-x-2 font-bold rounded-t-2xl border-b">
 				Dashboard
 			</h1>
+			<CardDashboard/>
+			
+			<div className="flex flex-col lg:flex-row justify-center p-3 gap-4">
+				<ChartDashboard/>
+				<UsersDashboard/>
+			</div>
+
 		</div>
 	);
 };

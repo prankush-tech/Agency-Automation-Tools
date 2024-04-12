@@ -5,9 +5,13 @@ import url from 'url'
 export async function GET(req: NextRequest) 
 {
   const code = req.nextUrl.searchParams.get('code')
-  if (code) {
+
+
+  if (code) 
+  {
     const data = new url.URLSearchParams()
-    console.log(data,code,"asfkhajfhsakjhf")
+    
+
     data.append('client_id', process.env.DISCORD_CLIENT_ID!)
     data.append('client_secret', process.env.DISCORD_CLIENT_SECRET!)
     data.append('grant_type', 'authorization_code')
@@ -16,6 +20,9 @@ export async function GET(req: NextRequest)
       'https://prankush-agency.vercel.app/api/auth/callback/discord'
     )
     data.append('code', code.toString())
+
+
+    console.log(data,code,"skjfhaskjhfsakjhfksahfksahfksah")
 
     const output = await axios.post(
       'https://discord.com/api/oauth2/token',

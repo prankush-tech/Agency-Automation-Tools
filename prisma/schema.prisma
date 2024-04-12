@@ -51,7 +51,7 @@ model LocalGoogleCredential {
 
 model DiscordWebhook {
   id          String        @id @default(uuid())
-  webhookId   String        @unique
+  webhookId   String?        @unique
   url         String        @unique
   name        String
   guildName   String
@@ -92,7 +92,7 @@ model Notion {
 
 model Connections {
   id               String          @id @default(uuid())
-  type             String          @unique
+  type             String          
   DiscordWebhook   DiscordWebhook? @relation(fields: [discordWebhookId], references: [id])
   discordWebhookId String?
   Notion           Notion?         @relation(fields: [notionId], references: [id])

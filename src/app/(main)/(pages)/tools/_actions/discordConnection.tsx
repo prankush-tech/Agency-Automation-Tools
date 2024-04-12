@@ -52,7 +52,8 @@ export const onDiscordConnect = async (
     }
 
     //if webhook exists return check for duplicate
-    if (webhook) {
+    if (webhook) 
+    {
       //check if webhook exists for target channel id
       const webhook_channel = await db.discordWebhook.findUnique({
         where: {
@@ -67,8 +68,10 @@ export const onDiscordConnect = async (
         },
       })
 
-      //if no webhook for channel create new webhook
-      if (!webhook_channel) {
+      // if no webhook for channel create new webhook
+      if (!webhook_channel)
+      
+       {
         await db.discordWebhook.create({
           data: {
             userId: id,
