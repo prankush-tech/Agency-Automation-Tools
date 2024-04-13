@@ -24,15 +24,16 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         elements: {
-          card:"bg-neutral-200",
+          card:"bg-neutral-100 shadow-md my-5",
           formButtonPrimary:"bg-[#e2f24b] hover:bg-neutral-900 hover:text-neutral-50 text-sm text-neutral-900 normal-case rounded-3xl",
           footerAction: 'flex items-center justify-center',
           footerActionLink: 'text-neutral-900 font-bold text-[1rem]',
           footerActionText: 'text-[1rem]',
-          socialButtons: 'shadow-sm border rounded-3xl',
+          socialButtons: 'shadow-md border rounded-3xl',
           formFieldLabel: 'pl-2',
           formFieldInput: 'rounded-3xl text-neutral-900',
-          socialButtonsProviderIcon:'mix-blend-multiply'
+          socialButtonsProviderIcon:'mix-blend-multiply',
+          socialButtonsBlockButton:"border-none"
         },
       }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
