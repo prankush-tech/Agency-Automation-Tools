@@ -33,7 +33,7 @@ CREATE TABLE "LocalGoogleCredential" (
 -- CreateTable
 CREATE TABLE "DiscordWebhook" (
     "id" TEXT NOT NULL,
-    "webhookId" TEXT NOT NULL,
+    "webhookId" TEXT,
     "url" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "guildName" TEXT NOT NULL,
@@ -150,9 +150,6 @@ CREATE UNIQUE INDEX "Notion_workspaceId_key" ON "Notion"("workspaceId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Notion_databaseId_key" ON "Notion"("databaseId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Connections_type_key" ON "Connections"("type");
 
 -- AddForeignKey
 ALTER TABLE "LocalGoogleCredential" ADD CONSTRAINT "LocalGoogleCredential_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
