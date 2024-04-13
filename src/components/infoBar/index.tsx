@@ -2,16 +2,19 @@
 import React, { useEffect } from 'react';
 import { ModeToggle } from '../global/mode-toggle';
 import { Book, Mail, Search } from 'lucide-react';
-import Templates from '../icons/cloud_download';
 import { Input } from '@/components/ui/input';
-
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { UserButton } from '@clerk/nextjs';
+import {  UserButton } from '@clerk/nextjs';
 import { useBilling } from '../../providers/billing-providers';
 import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/paymentConnection';
+import SignOutButtonCustom from '../ButtonLogOut/cutomSignOut';
+import { useUser } from '@clerk/nextjs';
+
 type Props = {};
 
 const InfoBar = (props: Props) => {
+
+
 	const { credits, tier, setCredits, setTier } = useBilling();
 
 	const onGetPayment = async () => {
@@ -22,6 +25,8 @@ const InfoBar = (props: Props) => {
 		}
 	};
 
+	const {user} = useUser();
+	
 	useEffect(() => {
 		onGetPayment();
 	}, []);
@@ -66,7 +71,7 @@ const InfoBar = (props: Props) => {
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
-			<UserButton afterSignOutUrl="/" />
+			{(user?.id == "user_2f1YutxgSudfCwnMQIEJBuEL5uY")? <SignOutButtonCustom  />:<UserButton afterSignOutUrl="/" />}
 		</div>
 	);
 };

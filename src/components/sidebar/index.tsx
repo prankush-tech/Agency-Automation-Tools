@@ -5,8 +5,6 @@ import React from 'react';
 import { TooltipProvider } from '../ui/tooltip';
 import Image from 'next/image';
 import { SideBarIcons } from '@/lib/constants';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip';
-import clsx from 'clsx';
 import { Separator } from '@/components/ui/separator';
 import { Database, GitBranch, LucideMousePointerClick } from 'lucide-react';
 import { ModeToggle } from '../global/mode-toggle';

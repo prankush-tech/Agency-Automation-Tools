@@ -31,3 +31,5 @@ export async function POST(req: Request) {
         return new NextResponse('Error updating user in database', { status: 500 })
       }
     }
+
+    
