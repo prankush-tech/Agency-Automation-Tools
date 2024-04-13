@@ -38,7 +38,7 @@
     <img src="https://github.com/prankush-tech/Agency-Management-System/assets/76916192/57a59992-f862-4f1d-8938-036cdb24c208" >
 </div>
 
-# SUPABASE POSTGRES SQL WITH PRISMA ORM
+# SUPABASE POSTGRESQL WITH PRISMA ORM
 <div align="center">
     <img src="https://github.com/prankush-tech/Agency-Management-System/assets/76916192/01b93895-ca63-40f3-a773-b5ae171a40c5" >
 </div>
