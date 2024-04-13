@@ -1,6 +1,6 @@
 # 🚧🚧 UNDER CONSTRUCTION 🚧🚧
 
-# <a href="prankush-agency.vercel.app" target="_blank" >GO LIVE</a>
+# <a href="https://prankush-agency.vercel.app" target="_blank" >GO LIVE</a>
 
 # AUTOMATION SAAS TOOL
 
