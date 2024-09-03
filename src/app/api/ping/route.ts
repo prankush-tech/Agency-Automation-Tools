@@ -2,16 +2,15 @@ import { db } from "@/lib/database";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  try {
-    const users = await db.ping.findMany();
-    console.log("Users:", users);
+    const ping = await db.ping.findMany();
 
-    return NextResponse.json(users);
-  } catch (error) {
-    return NextResponse.json({
-      error: Error,
-    });
-  } finally {
-    await db.$disconnect();
-  }
+    const sanitizedPing = ping.map(item => ({
+        ...item,
+        // Assuming `id` is the field with BigInt, adjust this according to your schema
+        id: item.id.toString(),
+    }));
+
+    console.log("Ping:", sanitizedPing);
+
+    return NextResponse.json(sanitizedPing);
 }
