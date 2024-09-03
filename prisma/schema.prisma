@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,71 +8,63 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-
-  clerkId      String  @unique
-  name         String?
-  email        String  @unique
-  profileImage String?
-  tier         String? @default("Free")
-  credits      String? @default("10")
-
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-  localGoogleId    String?  @unique
-  googleResourceId String?  @unique
-
-  LocalGoogleCredential LocalGoogleCredential?
+  id                    Int                    @id @default(autoincrement())
+  clerkId               String                 @unique
+  name                  String?
+  email                 String                 @unique
+  profileImage          String?
+  tier                  String?                @default("Free")
+  credits               String?                @default("10")
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  localGoogleId         String?                @unique
+  googleResourceId      String?                @unique
+  connections           Connections[]
   DiscordWebhook        DiscordWebhook[]
+  LocalGoogleCredential LocalGoogleCredential?
   Notion                Notion[]
   Slack                 Slack[]
-  connections           Connections[]
   workflows             Workflows[]
 }
 
 model LocalGoogleCredential {
-  id          String @id @default(uuid())
-  accessToken String @unique
-
-  folderId   String?
-  pageToken  String?
-  channelId  String  @unique @default(uuid())
-  subscribed Boolean @default(false)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  userId Int  @unique
-  user   User @relation(fields: [userId], references: [id])
+  id          String   @id @default(uuid())
+  accessToken String   @unique
+  folderId    String?
+  pageToken   String?
+  channelId   String   @unique @default(uuid())
+  subscribed  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      Int      @unique
+  user        User     @relation(fields: [userId], references: [id])
 }
 
 model DiscordWebhook {
   id          String        @id @default(uuid())
-  webhookId   String?        @unique
+  webhookId   String?       @unique
   url         String        @unique
   name        String
   guildName   String
   guildId     String
   channelId   String        @unique
-  user        User          @relation(fields: [userId], references: [clerkId])
   userId      String
   connections Connections[]
+  user        User          @relation(fields: [userId], references: [clerkId])
 }
 
 model Slack {
-  id String @id @default(uuid())
-
+  id               String        @id @default(uuid())
   appId            String
   authedUserId     String
-  authedUserToken  String @unique
-  slackAccessToken String @unique
+  authedUserToken  String        @unique
+  slackAccessToken String        @unique
   botUserId        String
   teamId           String
   teamName         String
-
-  User        User          @relation(fields: [userId], references: [clerkId])
-  userId      String
-  connections Connections[]
+  userId           String
+  connections      Connections[]
+  User             User          @relation(fields: [userId], references: [clerkId])
 }
 
 model Notion {
@@ -85,22 +74,22 @@ model Notion {
   databaseId    String        @unique
   workspaceName String
   workspaceIcon String
-  User          User          @relation(fields: [userId], references: [clerkId])
   userId        String
   connections   Connections[]
+  User          User          @relation(fields: [userId], references: [clerkId])
 }
 
 model Connections {
   id               String          @id @default(uuid())
-  type             String          
-  DiscordWebhook   DiscordWebhook? @relation(fields: [discordWebhookId], references: [id])
+  type             String
   discordWebhookId String?
-  Notion           Notion?         @relation(fields: [notionId], references: [id])
   notionId         String?
-  User             User?           @relation(fields: [userId], references: [clerkId])
   userId           String?
-  Slack            Slack?          @relation(fields: [slackId], references: [id])
   slackId          String?
+  DiscordWebhook   DiscordWebhook? @relation(fields: [discordWebhookId], references: [id])
+  Notion           Notion?         @relation(fields: [notionId], references: [id])
+  Slack            Slack?          @relation(fields: [slackId], references: [id])
+  User             User?           @relation(fields: [userId], references: [clerkId])
 }
 
 model Workflows {
@@ -119,6 +108,12 @@ model Workflows {
   cronPath          String?
   publish           Boolean? @default(false)
   description       String
-  User              User     @relation(fields: [userId], references: [clerkId])
   userId            String
+  User              User     @relation(fields: [userId], references: [clerkId])
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Ping {
+  id         BigInt   @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
 }
