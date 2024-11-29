@@ -19,7 +19,7 @@
 
 </div>
 
-# PLANNER EXCALIDRAW 
+# INBUILD EXCALIDRAW 
 <div align="center">
     <img src="https://github.com/prankush-tech/Agency-Management-System/assets/76916192/e9998a3f-03a8-48ea-bb8f-8513c20f3eef" >
 </div>
